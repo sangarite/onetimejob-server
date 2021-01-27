@@ -18,7 +18,6 @@ const apply = require('./controllers/apply');
 const creds = require('./config');
 const send = require('./controllers/send');
 const deleteJobs = require('./controllers/delete');
-const PORT = 3000;
 
 var storage = multer.diskStorage({
     destination: './avatars',
@@ -81,6 +80,6 @@ app.post('/send', send.Send(transporter, connection, sql));
 app.delete('/delete', deleteJobs.DeleteJobs(connection, sql));
 app.post('/avatar', function(req, res) { res.send(req.body.photo)});
 
-app.listen(PORT, () => {
-	console.log(`app is running on port ${PORT}`);
+app.listen(process.env.PORT || 3000, () => {
+	console.log(`app is running on port ${process.env.PORT}`);
 })
