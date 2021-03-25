@@ -15,9 +15,9 @@ const messages = require('./controllers/messages');
 const categories = require('./controllers/categories');
 const settings = require('./controllers/userSettings');
 const apply = require('./controllers/apply');
-const creds = require('./config');
 const send = require('./controllers/send');
 const deleteJobs = require('./controllers/delete');
+const creds = require('./config');
 
 var storage = multer.diskStorage({
     destination: './avatars',

@@ -1,3 +1,4 @@
+//register to app
 const handleRegister = (connection, sql, bcrypt) => (req, res) => {
 
   const { name, password, email } = req.body;

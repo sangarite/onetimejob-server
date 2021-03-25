@@ -1,3 +1,4 @@
+//get categories
 const GetCategories = (connection, sql) => (req, res) => {
   connection.connect()
   .then(() => {
@@ -8,11 +9,11 @@ const GetCategories = (connection, sql) => (req, res) => {
       connection.close();
     })
     .catch((err) => {
-      console.log(err, 'could not execute the query');
+      console.log(err, 'could not get categories');
       connection.close();
     })
   })
-  .catch((err) => console.log(err, 'could not connect to the database'))
+  .catch((err) => console.log(err, 'could not connect to the database at GetCategories'))
 }
 
 module.exports = { GetCategories: GetCategories };

@@ -1,9 +1,10 @@
+//get user messages
 const GetMessage = (connection, sql) => (req, res) => {
   const id = req.params.id;
   connection.connect()
   .then(() => {
     const request = new sql.Request(connection);
-    request.query(`select * from messages where user_id=${id}`)
+    request.query(`SELECT * FROM messages WHERE user_id=${id}`)
     .then(result => {
       res.send(result.recordsets[0]);
       connection.close();
@@ -16,6 +17,7 @@ const GetMessage = (connection, sql) => (req, res) => {
   .catch(err => res.send(err))
 }
 
+//update unseen messages to seen
 const updateMessage = (connection, sql) => (req, res) => {
   const id = req.params.id;
   connection.connect()

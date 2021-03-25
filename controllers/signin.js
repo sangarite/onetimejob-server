@@ -1,3 +1,4 @@
+//sign in the app
 const handleSignIn = (connection, sql, bcrypt) => (req, res) => {
 
   const { name, password } = req.body;

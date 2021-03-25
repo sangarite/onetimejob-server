@@ -1,3 +1,4 @@
+//publish job
 const handlePublish = (connection, sql) => (req, res) => {
 
   const { title, details, category, user, salary, date, area, city} = req.body;
@@ -7,9 +8,7 @@ const handlePublish = (connection, sql) => (req, res) => {
     res.end('יש להכניס כותרת קטגוריה ואזור');
   }
 
-  console.log(date);
   const ex_date = (date.length) ? date : 'DATEADD(month, 1, GETDATE())';
-
   const cat = (category.length === 1) ? '0' + category : category;
 
   connection.connect()

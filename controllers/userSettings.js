@@ -1,3 +1,4 @@
+//update basic settings
 const updateBasicSettings = (connection, sql) => (req, res) => {
 
   const { name, email, phone, city, country, neighborhood, id } = req.body;
@@ -21,6 +22,7 @@ const updateBasicSettings = (connection, sql) => (req, res) => {
   .catch((err) => console.log(err))
 }
 
+//update password
 const updatePassword = (connection, sql, bcrypt) => (req, res) => {
 
   const { id, oldPassword, newPassword, confirmPassword } = req.body;
@@ -60,6 +62,7 @@ const updatePassword = (connection, sql, bcrypt) => (req, res) => {
   .catch((err) => console.log('could not connect to server'))
 }
 
+//delete account
 const deleteAccount = (connection, sql) => (req, res) => {
   const { id } = req.body;
   connection.connect()

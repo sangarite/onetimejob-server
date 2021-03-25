@@ -1,3 +1,4 @@
+//send email
 const Send = (transporter, connection, sql) => (req, res) => {
 
   const { subject, message, email_to } = req.body;

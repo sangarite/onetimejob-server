@@ -1,3 +1,4 @@
+//delete expired jobs
 const DeleteJobs = (connection, sql) => (req, res) => {
   connection.connect()
   .then(() => {
@@ -12,7 +13,7 @@ const DeleteJobs = (connection, sql) => (req, res) => {
       connection.close();
     })
   })
-  .catch((err) => res.send('could not connect to database'))
+  .catch((err) => res.send('could not connect to database at DeleteJobs'))
 }
 
 module.exports = { DeleteJobs: DeleteJobs };
