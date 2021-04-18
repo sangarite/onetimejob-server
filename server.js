@@ -81,5 +81,5 @@ app.delete('/delete', deleteJobs.DeleteJobs(connection, sql));
 app.post('/avatar', function(req, res) { res.send(req.body.photo)});
 
 app.listen(process.env.PORT || 3000, () => {
-	console.log(`app is running on port ${process.env.PORT}`);
+	console.log(`app is running on port ${process.env.PORT || 3000}`);
 })
