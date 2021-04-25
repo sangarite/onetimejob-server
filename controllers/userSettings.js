@@ -1,13 +1,15 @@
 //update basic settings
 const updateBasicSettings = (connection, sql) => (req, res) => {
 
-  const { name, email, phone, city, country, neighborhood, id } = req.body;
+  const { name, email, phone, city, area, neighborhood, id } = req.body;
+
+  console.log(req.body);
 
   connection.connect()
   .then(() => {
     const request = new sql.Request(connection);
     request.query(`UPDATE users SET
-      user_name='${name}', email='${email}', phone='${phone}', city='${city}', country='${country}', neighborhood='${neighborhood}'
+      user_name=N'${name}', email='${email}', phone='${phone}', city=N'${city}', area=N'${area}', neighborhood=N'${neighborhood}'
       WHERE user_id=${id}`
     )
     .then((result) => {

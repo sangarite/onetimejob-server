@@ -2,7 +2,8 @@
 const Send = (transporter, connection, sql) => (req, res) => {
 
   const { subject, message, email_to } = req.body;
-  let email = '';
+
+  console.log(req.body);
 
   connection.connect()
   .then(() => {
@@ -24,11 +25,12 @@ const Send = (transporter, connection, sql) => (req, res) => {
       })
     })
     .catch(err => {
-      console.log('could not find email', err);
+      console.log('could not find email: ', err);
+      res.status(500);
       connection.close();
     })
   })
-  .catch(err => console.log('could not connect to database', err))
+  .catch(err => console.log('could not connect to database: ', err))
 }
 
 module.exports = { Send: Send };
