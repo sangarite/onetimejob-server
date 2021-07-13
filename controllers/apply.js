@@ -1,7 +1,7 @@
 //apply to a job - send a message to the job publisher
 const Apply = (connection, sql) => (req, res) => {
 
-  const { job_id, user, publisher_id, text } = req.body;
+  const { publisher_id, text } = req.body;
 
   connection.connect()
   .then(() => {

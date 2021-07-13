@@ -14,9 +14,11 @@ const handlePublish = (connection, sql) => (req, res) => {
   connection.connect()
   .then(() => {
     const request = new sql.Request(connection);
+    console.log(`INSERT INTO jobs (title, details, category, user_id, salary, expiry_date, area, city, publish_date)
+    VALUES (N'${title}', N'${details}', 'cat${cat}', ${user}, ${salary},` + ex_date + `, N'${area}', N'${city}', GETDATE())`);
     request.query(
       `INSERT INTO jobs (title, details, category, user_id, salary, expiry_date, area, city, publish_date)
-       VALUES (N'${title}', N'${details}', 'cat${cat}', ${user}, ${salary}, '${ex_date}', N'${area}', N'${city}', GETDATE())`
+    VALUES (N'${title}', N'${details}', 'cat${cat}', ${user}, ${salary},` + ex_date + `, N'${area}', N'${city}', GETDATE())`
     )
     .then(() => {
       res.status(200);
